@@ -1,0 +1,47 @@
+{
+  "intro": {
+    "title1": "Save Your \nMeals\nIngredient",
+    "title2": "Use Our App\nThe Best\nChoice",
+    "title3": "Our App\nYour Ultimate\nChoice",
+    "subtitle1": "Add Your Meals and its Ingredients\nand we will save it for you",
+    "subtitle2": "The best choice for your kitchen\ndo not hesitate",
+    "subtitle3": "All the best restaurants and their top\nmenus are ready for you",
+    "skip": "Skip",
+    "next": "Next"
+  },
+  "nav": {
+    "home": "Home",
+    "add_meal": "Add Meal",
+    "profile": "Profile"
+  },
+  "my_meals": "My Meals",
+  "meal_details": "Meal Details",
+  "meals": {
+    "breakfast_smoothie": "Breakfast Smoothie",
+    "pasta_carbonara": "Pasta Carbonara",
+    "chicken_salad": "Chicken Salad",
+    "vegetable_soup": "Vegetable Soup"
+  },
+  "calories": {
+    "350": "350 calories",
+    "450": "450 calories",
+    "600": "600 calories"
+  },
+  "time": "20 - 30",
+  "rating": "4.9",
+  "meal_description": {
+    "pasta": "A classic Italian pasta dish with eggs, cheese, pancetta, and black pepper. Simple yet delicious."
+  },
+  "form": {
+    "meal_name": "Meal Name",
+    "meal_type": "Breakfast",
+    "image_url": "Image URL",
+    "rate": "Rate",
+    "time": "Time",
+    "description": "Description",
+    "add_meal": "Add Meal",
+    "first": "first",
+    "second": "second",
+    "save": "Save"
+  }
+}
