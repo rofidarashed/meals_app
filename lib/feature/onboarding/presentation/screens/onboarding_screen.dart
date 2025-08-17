@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:meals_app/core/shared/shared_prefs.dart';
 import 'package:meals_app/core/utils/app_colors.dart';
 import 'package:meals_app/core/utils/app_images.dart';
+import 'package:meals_app/core/utils/app_strings.dart';
 import 'package:meals_app/core/widgets/change_language_button.dart';
 import 'package:meals_app/feature/onboarding/data/onboarding_lists.dart';
-import 'package:meals_app/feature/onboarding/presentation/widgets/custom_dots_indicator.dart';
+import 'package:meals_app/core/widgets/custom_dots_indicator.dart';
 import 'package:meals_app/feature/onboarding/presentation/widgets/onboarding_buttons.dart';
 import 'package:meals_app/feature/onboarding/presentation/widgets/onboarding_description.dart';
 
@@ -66,11 +68,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   SizedBox(height: 45.h),
                   OnboardingButtons(
                     onGetStarted: () {
+                      SharedPrefs.setBool(
+                        key: AppStrings.isOnboardingKey,
+                        value: true,
+                      );
+                      debugPrint(
+                        SharedPrefs.getBool(
+                          key: AppStrings.isOnboardingKey,
+                        ).toString(),
+                      );
+
                       Navigator.pushReplacementNamed(context, '/home');
                     },
-                    onSkip: () => carouselController.animateToPage(
-                      onboardingTitles.length - 1,
-                    ),
+                    onSkip: () {
+                      SharedPrefs.setBool(
+                        key: AppStrings.isOnboardingKey,
+                        value: true,
+                      );
+                      debugPrint(
+                        SharedPrefs.getBool(
+                          key: AppStrings.isOnboardingKey,
+                        ).toString(),
+                      );
+                      Navigator.pushReplacementNamed(context, '/home');
+                    },
                     onNext: () => carouselController.nextPage(),
                     position: position,
                   ),

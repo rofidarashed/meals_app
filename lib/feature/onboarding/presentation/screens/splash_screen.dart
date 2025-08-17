@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:meals_app/core/shared/shared_prefs.dart';
 import 'package:meals_app/core/utils/app_colors.dart';
+import 'package:meals_app/core/utils/app_strings.dart';
+import 'package:meals_app/feature/add_meal/presentation/screens/layout_screen.dart';
 import 'package:meals_app/feature/onboarding/presentation/screens/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,12 +17,21 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    checkOnboarding();
+  }
+
+  Future<void> checkOnboarding() async {
+    await SharedPrefs.init();
+    final isOnboarding =
+        SharedPrefs.getBool(key: AppStrings.isOnboardingKey) ?? false;
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) {
-            return const OnboardingScreen();
+            return isOnboarding
+                ? const LayoutScreen()
+                : const OnboardingScreen();
           },
         ),
       );

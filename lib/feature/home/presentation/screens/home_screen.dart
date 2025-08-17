@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meals_app/core/utils/app_colors.dart';
 import 'package:meals_app/core/utils/app_images.dart';
 import 'package:meals_app/core/widgets/change_language_button.dart';
+import 'package:meals_app/core/widgets/custom_dots_indicator.dart';
 import 'package:meals_app/feature/home/data/models/meal_model.dart';
 import 'package:meals_app/feature/home/presentation/widgets/custom_meal_card.dart';
 import 'package:meals_app/feature/home/presentation/widgets/home_slider_widget.dart';
@@ -16,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int position = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HomeSliderWidget(),
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              HomeSliderWidget(
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    position = index;
+                  });
+                },
+              ),
+              CustomDotsIndicator(position: position.toDouble()),
+            ],
+          ),
           SizedBox(height: 20.h),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20.w),
@@ -52,7 +66,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 12.h),
                 CustomMealCard(
-                 
                   mealModel: MealModel(
                     title: "meals.breakfast_smoothie".tr(),
                     image: AppImages.smoothie,

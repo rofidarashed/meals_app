@@ -1,13 +1,12 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meals_app/feature/home/data/home_slider_images.dart';
 
 class HomeSliderWidget extends StatelessWidget {
-  const HomeSliderWidget({
-    super.key,
-  });
+  const HomeSliderWidget({super.key, required this.onPageChanged});
+
+  final Function(int, CarouselPageChangedReason) onPageChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class HomeSliderWidget extends StatelessWidget {
       options: CarouselOptions(
         height: 160.h,
         viewportFraction: 1,
-        autoPlay: true,
+        onPageChanged: onPageChanged,
       ),
     );
   }

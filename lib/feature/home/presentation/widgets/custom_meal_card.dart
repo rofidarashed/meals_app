@@ -4,22 +4,14 @@ import 'package:meals_app/core/utils/app_colors.dart';
 import 'package:meals_app/feature/home/data/models/meal_model.dart';
 
 class CustomMealCard extends StatelessWidget {
-  const CustomMealCard({
-    super.key,
-    // required this.image,
-    // required this.title,
-    // required this.calories,
-    required this.mealModel, 
-  });
-  // final String image;
-  // final String title;
-  // final String calories;
+  const CustomMealCard({super.key, required this.mealModel});
   final MealModel mealModel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=>Navigator.pushNamed(context, '/details',arguments: mealModel),
+      onTap: () =>
+          Navigator.pushNamed(context, '/details', arguments: mealModel),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 8.h),
         color: AppColors.white,
