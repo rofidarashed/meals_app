@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meals_app/core/utils/app_colors.dart';
@@ -33,9 +34,9 @@ class CustomMealCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(mealModel.title, style: TextStyle(fontSize: 16.sp)),
+                Text(mealModel.title.tr(), style: TextStyle(fontSize: 16.sp)),
                 Text(
-                  mealModel.calories,
+                  '${mealModel.calories} ${'calories'.tr()}',
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,

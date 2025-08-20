@@ -22,11 +22,7 @@
     "chicken_salad": "Chicken Salad",
     "vegetable_soup": "Vegetable Soup"
   },
-  "calories": {
-    "350": "350 calories",
-    "450": "450 calories",
-    "600": "600 calories"
-  },
+  "calories": "calories",
   "time": "20 - 30",
   "rating": "4.9",
   "meal_description": {
