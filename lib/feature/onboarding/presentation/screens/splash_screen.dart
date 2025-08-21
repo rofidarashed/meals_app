@@ -3,7 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:meals_app/core/shared/shared_prefs.dart';
 import 'package:meals_app/core/utils/app_colors.dart';
 import 'package:meals_app/core/utils/app_strings.dart';
-import 'package:meals_app/feature/add_meal/presentation/screens/layout_screen.dart';
+import 'package:meals_app/feature/layout/layout_screen.dart';
 import 'package:meals_app/feature/onboarding/presentation/screens/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {

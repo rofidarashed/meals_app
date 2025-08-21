@@ -2,10 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meals_app/core/utils/app_colors.dart';
-import 'package:meals_app/core/utils/app_images.dart';
 import 'package:meals_app/core/widgets/change_language_button.dart';
 import 'package:meals_app/core/widgets/custom_dots_indicator.dart';
-import 'package:meals_app/feature/home/data/models/meal_model.dart';
+import 'package:meals_app/feature/home/data/meals_list.dart';
 import 'package:meals_app/feature/home/presentation/widgets/custom_meal_card.dart';
 import 'package:meals_app/feature/home/presentation/widgets/home_slider_widget.dart';
 
@@ -65,26 +64,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(height: 12.h),
-                CustomMealCard(
-                  mealModel: MealModel(
-                    title: "meals.breakfast_smoothie".tr(),
-                    image: AppImages.smoothie,
-                    calories: "calories.350".tr(),
-                  ),
-                ),
-                CustomMealCard(
-                  mealModel: MealModel(
-                    title: "meals.chicken_salad".tr(),
-                    image: AppImages.chickenSalad,
-                    calories: "calories.600".tr(),
-                  ),
-                ),
-                CustomMealCard(
-                  mealModel: MealModel(
-                    image: AppImages.vegetableSoup,
-                    title: "meals.vegetable_soup".tr(),
-                    calories: "calories.450".tr(),
-                  ),
+                ListView.builder(
+                  itemBuilder: (_, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: 20.h),
+                      child: CustomMealCard(mealModel: mealsList[index]),
+                    );
+                  },
+                  itemCount: mealsList.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
                 ),
               ],
             ),

@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/core/utils/app_colors.dart';
 import 'package:meals_app/feature/home/presentation/screens/home_screen.dart';
-import 'package:meals_app/feature/layout/add_meal_screen.dart';
+import 'package:meals_app/feature/add_meal/presentation/screens/add_meal_screen.dart';
 import 'package:meals_app/feature/profile/presentation/screens/profile_screen.dart';
 
 class LayoutScreen extends StatefulWidget {
