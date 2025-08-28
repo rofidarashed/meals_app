@@ -29,6 +29,7 @@ class CustomTextFormField extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         TextFormField(
+          onTapOutside: (event) => FocusScope.of(context).unfocus(),
           controller: controller,
           maxLines: maxLines,
           keyboardType: keyboardType,

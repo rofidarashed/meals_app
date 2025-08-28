@@ -78,7 +78,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ).toString(),
                       );
 
-                      Navigator.pushReplacementNamed(context, '/home');
+                      Navigator.pushReplacementNamed(context, '/layout');
                     },
                     onSkip: () {
                       SharedPrefs.setBool(
