@@ -2,10 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meals_app/core/routes/app_routes.dart';
+import 'package:meals_app/feature/home/data/dp_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await DatabaseHelper.instance.cleanImageData();
   runApp(
     EasyLocalization(
       supportedLocales: [Locale('en'), Locale('ar')],

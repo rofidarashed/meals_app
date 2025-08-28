@@ -7,12 +7,17 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.label,
     required this.hintText,
-    required this.maxLines, required this.controller,
+    required this.maxLines,
+    required this.controller,
+    required this.keyboardType,
+    required this.validator,
   });
   final String label;
   final TextEditingController controller;
   final String hintText;
   final int? maxLines;
+  final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,8 +29,10 @@ class CustomTextFormField extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         TextFormField(
-          controller: controller ,
+          controller: controller,
           maxLines: maxLines,
+          keyboardType: keyboardType,
+          validator: validator,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: TextStyle(color: AppColors.gray),

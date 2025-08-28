@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,15 +21,18 @@ class DetailsScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image(
-            image: AssetImage(mealModel.image),
-            fit: BoxFit.cover,
+          CachedNetworkImage(
+            imageUrl: mealModel.image,
             height: 218.h,
             width: double.infinity,
+            fit: BoxFit.cover,
+            placeholder: (context, url) =>
+                Center(child: CircularProgressIndicator()),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
           SizedBox(height: 20.h),
           Text(
-            "\t\t\t${mealModel.title.tr()}",
+            "\t\t\t${mealModel.title}",
             style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 12.h),
@@ -49,7 +53,7 @@ class DetailsScreen extends StatelessWidget {
                 ),
                 SizedBox(width: 8.w),
                 Text(
-                  '${mealModel.time.tr()} min',
+                  '${mealModel.time} min',
                   style: TextStyle(
                     color: AppColors.textGray,
                     fontSize: 14.sp,

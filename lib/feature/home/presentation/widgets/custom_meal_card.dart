@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meals_app/core/utils/app_colors.dart';
+import 'package:meals_app/core/widgets/flexible_image.dart';
+import 'package:meals_app/feature/home/data/dp_helper.dart';
 import 'package:meals_app/feature/home/data/models/meal_model.dart';
 
 class CustomMealCard extends StatelessWidget {
@@ -19,17 +21,7 @@ class CustomMealCard extends StatelessWidget {
 
         child: Row(
           children: [
-            Container(
-              height: 56.h,
-              width: 56.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.r),
-                image: DecorationImage(
-                  image: AssetImage(mealModel.image),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            FlexibleImage(image: mealModel.image, height: 80.h, width: 100.w),
             SizedBox(width: 16.w),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,6 +36,13 @@ class CustomMealCard extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Spacer(),
+            IconButton(
+              onPressed: () {
+                DatabaseHelper.instance.deleteMeal(mealModel.id!);
+              },
+              icon: Icon(Icons.delete),
             ),
           ],
         ),
